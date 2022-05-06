@@ -5,7 +5,7 @@ from django.db import models
 
 class SingleQuestion(models.Model):
 
-    qid =  models.BigIntegerField('qid', primary_key = True)
+    qid =  models.AutoField('qid', primary_key = True)
     question = models.CharField('question',max_length=300)
     optionA = models.CharField('A',max_length=100)
     optionB = models.CharField('B',max_length=100)
@@ -18,6 +18,8 @@ class SingleQuestion(models.Model):
     def __str__(self):
         return self.qid + '--' + self.question
 
+    class Meta:
+        db_table = 'single_question'
 
 
 
